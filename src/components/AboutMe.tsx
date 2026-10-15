@@ -12,16 +12,24 @@ export function AboutMe() {
     <div>
 
         <motion.div
-            initial={{ opacity: 0, y: 22, filter: "blur(4px)" }}
+            initial={
+              reduce
+                ? false
+              : { opacity: 0, y: 22, filter: "blur(4px)" }
+            }
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{
-                delay: 0.22,
-                // duration: 1.4,
-                type: "spring",
-                stiffness: 80,
-                damping: 30,
-                mass: 0.9,
-        }}>
+            transition={        
+              reduce
+                ? { duration: 0 }
+                : {
+                    delay: 0.22,
+                    type: "spring",
+                    stiffness: 80,
+                    damping: 30,
+                    mass: 0.9,
+                  }
+            }
+          >
             <Card className="p-4 w-full min-h-[40dvh] shadow-xl">
         
                 <CardHeader className="mt-6">
